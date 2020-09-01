@@ -49,7 +49,7 @@ const HeaderComponent = () => {
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#">
-                                <ion-icon name="moon" className="btn-toggle"></ion-icon>
+                                <ion-icon name="moon" class="btn-toggle"></ion-icon>
                             </a>
                         </li>
                     </ul>

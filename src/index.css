@@ -23,6 +23,107 @@ body {
 	--modal-content-btn-color: #fff;
 }
 
+body.dark-mode {
+	--body-color: #c7c7c7;
+	--header-bg: #666666e8;
+	--navbar-color: #fff;
+	--header-box-shadow: rgba(147, 157, 201, .25);
+
+	--explore-pane-bg: #171a29;
+	/* no change */
+
+	--restaurants-pane-bg: #000;
+	--rest-head-border-bottom: #605d5de6;
+	--rest-card-border: #000;
+	--rest-tag-color: #999ca5;
+
+	--rest-row1-color: #959ab2;
+
+	--rest-row1-rating-color: #fff;
+	/* no change */
+
+	--rest-row2-border-top: #565656;
+	--rest-row2-color: #d3aca2;
+	--rest-row3-border-top: #565656;
+
+
+	--rest-row3-color: #5d8ed5;
+	/* no change */
+
+	--rest-card-hover-border-color: #2a2a2c;
+	--rest-card-hover-box-shadow: rgba(31, 31, 31, .6);
+
+	/* Bootstrap modal */
+	--modal-content-background-color: #313131;
+	--modal-content-border: rgb(93 93 93);
+	--modal-content-btn-color: #d3d3d3;
+}
+
+@media (prefers-color-scheme: dark) {
+
+	/* defaults to dark theme */
+	body {
+		--body-color: #c7c7c7;
+		--header-bg: #666666e8;
+		--navbar-color: #fff;
+		--header-box-shadow: rgba(147, 157, 201, .25);
+
+		--explore-pane-bg: #171a29;
+		/* no change */
+
+		--restaurants-pane-bg: #000;
+		--rest-head-border-bottom: #605d5de6;
+		--rest-card-border: #000;
+		--rest-tag-color: #999ca5;
+
+		--rest-row1-color: #959ab2;
+
+		--rest-row1-rating-color: #fff;
+		/* no change */
+
+		--rest-row2-border-top: #565656;
+		--rest-row2-color: #d3aca2;
+		--rest-row3-border-top: #565656;
+
+
+		--rest-row3-color: #5d8ed5;
+		/* no change */
+
+		--rest-card-hover-border-color: #2a2a2c;
+		--rest-card-hover-box-shadow: rgba(31, 31, 31, .6);
+
+		/* Bootstrap modal */
+		--modal-content-background-color: #313131;
+		--modal-content-border: rgb(93 93 93);
+		--modal-content-btn-color: #d3d3d3;
+	}
+
+	body.light-mode {
+		--body-color: #282c3f;
+		--header-bg: #fff;
+		--navbar-color: #000;
+		--header-box-shadow: rgba(40, 44, 63, .15);
+		--explore-pane-bg: #171a29;
+		--restaurants-pane-bg: #fff;
+		--rest-head-border-bottom: #ccc;
+		--rest-card-border: #fff;
+		--rest-tag-color: #686b78;
+		--rest-row1-color: #535665;
+		--rest-row1-rating-color: #fff;
+		--rest-row2-border-top: #e9e9eb;
+		--rest-row2-color: #8a584b;
+		--rest-row3-border-top: #e9e9eb;
+		--rest-row3-color: #5d8ed5;
+		--rest-card-hover-border-color: #d3d5df;
+		--rest-card-hover-box-shadow: rgba(218, 220, 230, .6);
+
+		/* Bootstrap modal */
+		--modal-content-background-color: #fff;
+		--modal-content-border: rgba(0, 0, 0, .2);
+		--modal-content-btn-color: #fff;
+	}
+}
+
 html,
 body {
 	padding: 0;
