@@ -1,13 +1,61 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	--body-color: #282c3f;
+	--header-bg: #fff;
+	--navbar-color: #000;
+	--header-box-shadow: rgba(40, 44, 63, .15);
+	--explore-pane-bg: #171a29;
+	--restaurants-pane-bg: #fff;
+	--rest-head-border-bottom: #ccc;
+	--rest-card-border: #fff;
+	--rest-tag-color: #686b78;
+	--rest-row1-color: #535665;
+	--rest-row1-rating-color: #fff;
+	--rest-row2-border-top: #e9e9eb;
+	--rest-row2-color: #8a584b;
+	--rest-row3-border-top: #e9e9eb;
+	--rest-row3-color: #5d8ed5;
+	--rest-card-hover-border-color: #d3d5df;
+	--rest-card-hover-box-shadow: rgba(218, 220, 230, .6);
+
+	/* Bootstrap modal */
+	--modal-content-background-color: #fff;
+	--modal-content-border: rgba(0, 0, 0, .2);
+	--modal-content-btn-color: #fff;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html,
+body {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: Arial;
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 1.2;
+	color: var(--body-color) ! important;
+	letter-spacing: 0;
+}
+
+.main-container {
+	padding: 0 20px;
+	width: 100%;
+}
+
+/*--------For correcting Bootstrap----------*/
+
+ul {
+	margin-bottom: 0;
+	padding-left: 0;
+}
+
+.navbar-brand {
+	margin-right: 0;
+}
+
+.modal-header {
+	display: block;
+}
+
+.navbar-light .navbar-nav .nav-link {
+	color: var(--navbar-color);
 }

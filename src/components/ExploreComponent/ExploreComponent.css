@@ -1,0 +1,64 @@
+/*--------For correcting slick scroll----------*/
+
+.slick-dots {
+	width: auto;
+}
+
+.slick-dots li button:before {
+	opacity: 1;
+	color: rgb(150, 150, 150);
+}
+
+.slick-dots li.slick-active button:before {
+	opacity: 1;
+	color: white;
+}
+
+.slick-prev {
+	left: 2px;
+	z-index: 10;
+}
+
+.slick-next {
+	right: 10px;
+	z-index: 10;
+}
+
+.slick-prev:before,
+.slick-next:before {
+	font-size: 30px;
+}
+
+
+/*--------Actual CSS----------*/
+
+.explore-pane {
+	margin-top: 80px;
+	/* min-height: 340px; */
+	background-color: var(--explore-pane-bg);
+	padding-top: 20px;
+	padding-bottom: 1px;
+}
+
+.image-container {
+	/* background-color: #000; */
+	/* min-height: 340px; */
+	max-width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-left: 30px;
+	padding-right: 0px;
+}
+
+.explore-img {
+	height: 260px;
+	width: 260px;
+	margin-right: 50px;
+	transition: transform .5s cubic-bezier(.215, .61, .355, 1);
+}
+
+.explore-img:hover {
+	transform: scale(1.05);
+}

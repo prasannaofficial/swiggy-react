@@ -1,0 +1,6 @@
+.restaurants-pane {
+	background-color: var(--restaurants-pane-bg);
+	min-height: 100vh;
+	padding: 20px 0px;
+	/* min-height: calc(100vh - 420px); */
+}
