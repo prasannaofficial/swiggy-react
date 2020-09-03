@@ -14,6 +14,10 @@ const ExploreComponent = () =>{
                 <img className="explore-img" src={img2}/>
                 <img className="explore-img" src={img3}/>
                 <img className="explore-img" src={img4}/>
+                <img className="explore-img" src={img1}/>
+                <img className="explore-img" src={img2}/>
+                <img className="explore-img" src={img3}/>
+                <img className="explore-img" src={img4}/>
             </div>
         </section>
     );

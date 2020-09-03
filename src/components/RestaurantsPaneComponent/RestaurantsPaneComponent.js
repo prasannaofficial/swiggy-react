@@ -1,13 +1,16 @@
-import React from 'react';
+import React,{Component} from 'react';
 import HeadingSection from './HeadingSection';
 import ListSection from './ListSection';
 import './RestaurantsPaneComponent.css';
 
-const RestaurantsPaneComponent = () =>{
+const RestaurantsPaneComponent = ({history}) =>{
     return(
-        <section class="restaurants-pane">
+        <section className="restaurants-pane"
+        >
             <HeadingSection/>
-            <ListSection/>
+            <ListSection
+            history={history}
+            />
         </section>
     );
 }

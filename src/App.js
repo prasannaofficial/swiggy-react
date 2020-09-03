@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
-import HeaderComponent from './components/HeaderComponent/HeaderComponent';
-import ExploreComponent from './components/ExploreComponent/ExploreComponent';
-import RestaurantsPaneComponent from './components/RestaurantsPaneComponent/RestaurantsPaneComponent';
+import React from 'react';
 
-class App extends Component{
-  constructor(){
-    super();
-  }
-  render(){
-    return(
-      <div className="App">
-        <HeaderComponent/>
-        <ExploreComponent/>
-        <RestaurantsPaneComponent/>
-      </div>
-    );
-  }
+import { BrowserRouter, Route } from "react-router-dom";
+
+import RestaurantsPage from "./pages/RestaurantsPage/RestaurantsPage";
+import OrdersPage from "./pages/OrdersPage/OrdersPage";
+
+function App() {
+  return(
+    <BrowserRouter>
+      <Route exact path={"/"} component={RestaurantsPage}></Route>
+      <Route
+        exact
+        path={"/orders/:id"}
+        render={props => <OrdersPage {...props} />}
+      ></Route>
+    </BrowserRouter>
+  );
 }
 
 export default App;

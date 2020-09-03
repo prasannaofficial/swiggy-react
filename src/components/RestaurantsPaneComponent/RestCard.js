@@ -8,27 +8,29 @@ import quickView05 from '../../img/quickView05.jpeg';
 import quickView06 from '../../img/quickView06.jpeg';
 
 
-const RestCard = ({obj}) => {
+const RestCard = ({obj,restId,history}) => {
     const {id,src,name,tagline,rating,duration,price,offer} = obj;
     return(
         <>
             <div className="rest-card">
-                <img src={src} width="254px" height="160px"/>
-                <div className="rest-name">{name}</div>
-                <div className="rest-tag">{tagline}</div>
-                <div className="rest-row1">
-                    <div className="rest-row1-rating">
-                        <ion-icon name="star"></ion-icon>
-                        <div>&nbsp;{rating}</div>
+                <div onClick={()=>{history.push("/orders/"+restId)}}>
+                    <img src={src} width="254px" height="160px"/>
+                    <div className="rest-name">{name}</div>
+                    <div className="rest-tag">{tagline}</div>
+                    <div className="rest-row1">
+                        <div className="rest-row1-rating">
+                            <ion-icon name="star"></ion-icon>
+                            <div>&nbsp;{rating}</div>
+                        </div>
+                        <div>•</div>
+                        <div>{duration}</div>
+                        <div>•</div>
+                        <div className="nVWSi">{price}</div>
                     </div>
-                    <div>•</div>
-                    <div>{duration}</div>
-                    <div>•</div>
-                    <div className="nVWSi">{price}</div>
-                </div>
-                <div className="rest-row2">
-                    <ion-icon name="gift"></ion-icon>
-                    {offer}
+                    <div className="rest-row2">
+                        <ion-icon name="gift"></ion-icon>
+                        {offer}
+                    </div>
                 </div>
                 <div className="rest-row3" data-toggle="modal" data-target={'#rest'+id}>
                     Quick View

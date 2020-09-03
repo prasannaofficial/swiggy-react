@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Component} from 'react';
 import './ListSection.css';
 import RestCard from './RestCard';
 
@@ -94,12 +94,17 @@ const RestObj=[
     }
 ]
 
-const ListSection = () => {
+const ListSection = ({history}) => {
     return(
         <div className="rest-cards-container main-container">
-            <div className="rest-cards-row">
+            <div className="rest-cards-row"
+            >
             {
-                RestObj.map(obj => <RestCard obj={obj}/>)
+                RestObj.map((obj,id) => <RestCard 
+                    obj={obj}
+                    restId={id}
+                    history={history}
+                    />)
             }
             </div>
         </div>
