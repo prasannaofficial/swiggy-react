@@ -48,9 +48,23 @@ const HeaderComponent = () => {
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">
+                            <span className="nav-link" href="#" style={{cursor:"pointer"}} onClick={
+                                ()=>{
+                                    {
+                                        const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+                                        if (prefersDarkScheme.matches) {
+                                            document.body.classList.toggle("light-mode");
+                                            var theme = document.body.classList.contains("light-mode") ? "light" : "dark";
+                                        } else {
+                                            document.body.classList.toggle("dark-mode");
+                                            var theme = document.body.classList.contains("dark-mode") ? "dark" : "light";
+                                        }
+                                        localStorage.setItem("theme", theme);
+                                    }
+                                }
+                            }>
                                 <ion-icon name="moon" class="btn-toggle"></ion-icon>
-                            </a>
+                            </span>
                         </li>
                     </ul>
                 </div>

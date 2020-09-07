@@ -21,16 +21,20 @@ body {
 	--modal-content-background-color: #fff;
 	--modal-content-border: rgba(0, 0, 0, .2);
 	--modal-content-btn-color: #fff;
+
+	--hotel-location-wrapper-bg:#fff;
+	--hotel-food-items-wrapper-bg:#fff;
+	--menuItem-border-color:#d4d5d9;
 }
 
-/* body.dark-mode {
+body.dark-mode {
 	--body-color: #c7c7c7;
 	--header-bg: #666666e8;
 	--navbar-color: #fff;
 	--header-box-shadow: rgba(147, 157, 201, .25);
 
 	--explore-pane-bg: #171a29;
-	no change
+	/* no change */
 
 	--restaurants-pane-bg: #000;
 	--rest-head-border-bottom: #605d5de6;
@@ -40,7 +44,7 @@ body {
 	--rest-row1-color: #959ab2;
 
 	--rest-row1-rating-color: #fff;
-	no change
+	/* no change */
 
 	--rest-row2-border-top: #565656;
 	--rest-row2-color: #d3aca2;
@@ -48,20 +52,24 @@ body {
 
 
 	--rest-row3-color: #5d8ed5;
-	no change
+	/* no change */
 
 	--rest-card-hover-border-color: #2a2a2c;
 	--rest-card-hover-box-shadow: rgba(31, 31, 31, .6);
 
-	Bootstrap modal
+	/* Bootstrap modal */
 	--modal-content-background-color: #313131;
 	--modal-content-border: rgb(93 93 93);
 	--modal-content-btn-color: #d3d3d3;
+
+	--hotel-location-wrapper-bg:#333333;
+	--hotel-food-items-wrapper-bg:#000;
+	--menuItem-border-color:#565656;
 }
 
 @media (prefers-color-scheme: dark) {
 
-	defaults to dark theme
+	/* defaults to dark theme */
 	body {
 		--body-color: #c7c7c7;
 		--header-bg: #666666e8;
@@ -69,7 +77,7 @@ body {
 		--header-box-shadow: rgba(147, 157, 201, .25);
 
 		--explore-pane-bg: #171a29;
-		no change
+		/* no change */
 
 		--restaurants-pane-bg: #000;
 		--rest-head-border-bottom: #605d5de6;
@@ -79,7 +87,7 @@ body {
 		--rest-row1-color: #959ab2;
 
 		--rest-row1-rating-color: #fff;
-		no change
+		/* no change */
 
 		--rest-row2-border-top: #565656;
 		--rest-row2-color: #d3aca2;
@@ -87,15 +95,19 @@ body {
 
 
 		--rest-row3-color: #5d8ed5;
-		no change
+		/* no change */
 
 		--rest-card-hover-border-color: #2a2a2c;
 		--rest-card-hover-box-shadow: rgba(31, 31, 31, .6);
 
-		Bootstrap modal
+		/* Bootstrap modal */
 		--modal-content-background-color: #313131;
 		--modal-content-border: rgb(93 93 93);
 		--modal-content-btn-color: #d3d3d3;
+
+		--hotel-location-wrapper-bg:#333333;
+		--hotel-food-items-wrapper-bg:#000;
+		--menuItem-border-color:#565656;
 	}
 
 	body.light-mode {
@@ -117,12 +129,16 @@ body {
 		--rest-card-hover-border-color: #d3d5df;
 		--rest-card-hover-box-shadow: rgba(218, 220, 230, .6);
 
-		Bootstrap modal
+		/* Bootstrap modal */
 		--modal-content-background-color: #fff;
 		--modal-content-border: rgba(0, 0, 0, .2);
 		--modal-content-btn-color: #fff;
+
+		--hotel-location-wrapper-bg:#fff;
+		--hotel-food-items-wrapper-bg:#fff;
+		--menuItem-border-color:#d4d5d9;
 	}
-} */
+}
 
 html,
 body {

@@ -1,3 +1,7 @@
+.hotel-location-wrapper{
+    background-color:var(--hotel-location-wrapper-bg);
+}
+
 .hotel-location-container {
     min-height: 30px;
     padding: 0 20px;
@@ -115,6 +119,9 @@
     font-size: 20px;
 }
 
+.hotel-food-items-wrapper{
+    background-color: var(--hotel-food-items-wrapper-bg);
+}
 
 .hotel-food-items-container {
     margin: 0 auto;
@@ -288,7 +295,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
-    border-bottom: 1px solid #d4d5d9;
+    border-bottom: 1px solid var(--menuItem-border-color);
 }
 
 .menuItem img {
