@@ -34,10 +34,10 @@
 
 .explore-pane {
 	margin-top: 80px;
-	/* min-height: 340px; */
+	min-height: 305px;
 	background-color: var(--explore-pane-bg);
 	padding-top: 20px;
-	padding-bottom: 1px;
+	padding-bottom: 25px;
 }
 
 .image-container {
@@ -55,7 +55,8 @@
 .explore-img {
 	height: 260px;
 	width: 260px;
-	margin-right: 50px;
+	/* padding-left: 25px; */
+	padding-right: 25px;
 	transition: transform .5s cubic-bezier(.215, .61, .355, 1);
 }
 
