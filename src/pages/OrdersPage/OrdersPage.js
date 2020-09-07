@@ -12,6 +12,13 @@ import rest06 from '../../img/rest06.jpeg';
 import rest07 from '../../img/rest07.jpeg';
 import rest08 from '../../img/rest08.jpeg';
 
+import quickView01 from '../../img/quickView01.jpeg';
+import quickView02 from '../../img/quickView02.jpeg';
+import quickView03 from '../../img/quickView03.jpeg';
+import quickView04 from '../../img/quickView04.jpeg';
+import quickView05 from '../../img/quickView05.jpeg';
+import quickView06 from '../../img/quickView06.jpeg';
+
 const RestObj=[
     {
         id:'01',
@@ -95,9 +102,101 @@ const RestObj=[
     }
 ]
 
+const initialState={
+    menu:[
+        {
+            id:1,
+            name:"Onion Rava Dosai",
+            img:quickView01,
+            price:110,
+            quantity:0,
+            subTotal:0
+        },
+        {
+            id:2,
+            name:"Ghee Roast",
+            img:quickView02,
+            price:110,
+            quantity:0,
+            subTotal:0
+        },
+        {
+            id:3,
+            name:"Idly [2 Nos]",
+            img:quickView03,
+            price:45,
+            quantity:0,
+            subTotal:0
+        },
+        {
+            id:4,
+            name:"Mini Idly",
+            img:quickView04,
+            price:80,
+            quantity:0,
+            subTotal:0
+        },
+        {
+            id:5,
+            name:"Onion Uttapam",
+            img:quickView05,
+            price:120,
+            quantity:0,
+            subTotal:0
+        },
+        {
+            id:6,
+            name:"Poori [2 Nos]",
+            img:quickView06,
+            price:70,
+            quantity:0,
+            subTotal:0
+        }
+    ],
+    totalPrice:0,
+    cartCount:0
+};
+
 class OrdersPage extends Component {
     constructor(props) {
         super(props);
+        this.state=initialState;
+    }
+    decrement=(id)=>{
+        let menu=[...this.state.menu];
+        let cartCount=this.state.cartCount;
+        let totalPrice=0;
+        menu.forEach(element => {
+            if(element.id===id){
+                if(element.quantity){
+                    if(element.quantity===1){
+                        cartCount--;
+                    }
+                    element.quantity--;
+                }
+                element.subTotal=element.quantity*element.price;
+                totalPrice+=element.subTotal;
+            }
+        });
+        this.setState({menu,cartCount,totalPrice})
+        // console.log(id);
+    }
+    increment=(id)=>{
+        let menu=[...this.state.menu];
+        let cartCount=this.state.cartCount;
+        let totalPrice=0;
+        menu.forEach(element => {
+            if(element.id===id){
+                if(!element.quantity){
+                    cartCount++;
+                }
+                element.quantity++;
+                element.subTotal=element.quantity*element.price;
+                totalPrice+=element.subTotal;
+            }
+        });
+        this.setState({menu,cartCount,totalPrice})
+        // console.log(id);
     }
     render(){
         const id=this.props.match.params.id;
@@ -152,46 +251,52 @@ class OrdersPage extends Component {
                     </div>
                 </div>
                 <div className="hotel-food-items-container">
-                    <div className="cart-container">
-                        <h1>Cart</h1>
-                        <p>2 items</p>
-                        <div className="cartItem">
-                            <div className="cartItem-col">
-                                <ion-icon className="veg-icon" name="heart-circle-outline"></ion-icon>
+                    <>
+                        { 
+                            this.state.cartCount>0?
+                            (
+                                <div className="cart-container">
+                                    <h1>Cart</h1>
+                                    <p>{this.state.cartCount} items</p>
+                                    {
+                                        this.state.menu.map(menuItem=>{
+                                            if(menuItem.quantity>0){
+                                                return <div className="cartItem">
+                                                            <div className="cartItem-col">
+                                                                <ion-icon className="veg-icon" name="heart-circle-outline"></ion-icon>
+                                                            </div>
+                                                            <div className="cartItem-name cartItem-col">{menuItem.name}</div>
+                                                            <div className="addItem cartItem-col">
+                                                                <div onClick={()=>this.decrement(menuItem.id)}>-</div>
+                                                                <div>{menuItem.quantity}</div>
+                                                                <div onClick={()=>this.increment(menuItem.id)}>+</div>
+                                                            </div>
+                                                            <div className="cartItem-col">
+                                                                ₹{menuItem.subTotal}
+                                                            </div>
+                                                        </div>
+                                            }
+                                        })
+                                    }
+                                    <div className="checkout">
+                                        <div className="row1">
+                                            <div>Subtotal</div>
+                                            <div> ₹ {this.state.totalPrice}</div>
+                                        </div>
+                                        <div className="row2">Extra charges may apply</div>
+                                        <div className="row3">CHECKOUT →</div>
+                                    </div>
+                                </div>
+                            ):
+                            <div className="cart-container empty-cart">
+                                <h1>Cart Empty</h1>
+                                <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_480/Cart_empty_-_menu_2x_ejjkf2"/>
+                                <div>
+                                    Good food is always cooking! Go ahead, order some yummy items from the menu.
+                                </div>
                             </div>
-                            <div className="cartItem-name cartItem-col">Onion Rava Dosai</div>
-                            <div className="addItem cartItem-col">
-                                <div>-</div>
-                                <div>1</div>
-                                <div>+</div>
-                            </div>
-                            <div className="cartItem-col">
-                                ₹110
-                            </div>
-                        </div>
-                        <div className="cartItem">
-                            <div className="cartItem-col">
-                                <ion-icon className="veg-icon" name="heart-circle-outline"></ion-icon>
-                            </div>
-                            <div className="cartItem-name cartItem-col">Ghee Roast</div>
-                            <div className="addItem cartItem-col">
-                                <div>-</div>
-                                <div>1</div>
-                                <div>+</div>
-                            </div>
-                            <div className="cartItem-col">
-                                ₹110
-                            </div>
-                        </div>
-                        <div className="checkout">
-                            <div className="row1">
-                                <div>Subtotal</div>
-                                <div> ₹ 220</div>
-                            </div>
-                            <div className="row2">Extra charges may apply</div>
-                            <div className="row3">CHECKOUT →</div>
-                        </div>
-                    </div>
+                        }
+                    </>
                     <div className="menu-container">
                         <div className="menu-headings-container">
                             <ul>
@@ -208,7 +313,30 @@ class OrdersPage extends Component {
                             <div className="menu-type-container">
                                 <h1>Recommended</h1>
                                 <p>3 items</p>
-                                <div className="menuItem">
+                                {
+                                    this.state.menu.map(menuItem=>{
+                                        return <div className="menuItem">
+                                            <div className="left">
+                                                <div className="row1">
+                                                    <ion-icon className="veg-icon" name="heart-circle-outline"></ion-icon>
+                                                    <ion-icon className="star-icon" name="star"></ion-icon>
+                                                    <span>Bestseller</span>
+                                                </div>
+                                                <div className="row2">{menuItem.name}</div>
+                                                <div className="row3">₹{menuItem.price}</div>
+                                            </div>
+                                            <div className="right">
+                                                <img src={menuItem.img}/>
+                                                <div className="addItem">
+                                                    <div onClick={()=>this.decrement(menuItem.id)}>-</div>
+                                                    <div>{menuItem.quantity}</div>
+                                                    <div onClick={()=>this.increment(menuItem.id)}>+</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    })
+                                }
+                                {/* <div className="menuItem">
                                     <div className="left">
                                         <div className="row1">
                                             <ion-icon className="veg-icon" name="heart-circle-outline"></ion-icon>
@@ -226,45 +354,7 @@ class OrdersPage extends Component {
                                             <div>+</div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="menuItem">
-                                    <div className="left">
-                                        <div className="row1">
-                                            <ion-icon className="veg-icon" name="heart-circle-outline"></ion-icon>
-                                            <ion-icon className="star-icon" name="star"></ion-icon>
-                                            <span>Bestseller</span>
-                                        </div>
-                                        <div className="row2">Idly [2 Nos]</div>
-                                        <div className="row3">₹45</div>
-                                    </div>
-                                    <div className="right">
-                                        <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/ewuxg2kscljryspcvfgo"/>
-                                        <div className="addItem">
-                                            <div>-</div>
-                                            <div>0</div>
-                                            <div>+</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="menuItem">
-                                    <div className="left">
-                                        <div className="row1">
-                                            <ion-icon className="veg-icon" name="heart-circle-outline"></ion-icon>
-                                            <ion-icon className="star-icon" name="star"></ion-icon>
-                                            <span>Bestseller</span>
-                                        </div>
-                                        <div className="row2">Ghee Roast</div>
-                                        <div className="row3">₹110</div>
-                                    </div>
-                                    <div className="right">
-                                        <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/p2qe8rvn7yzy9gpwdfbm"/>
-                                        <div className="addItem">
-                                            <div>-</div>
-                                            <div>0</div>
-                                            <div>+</div>
-                                        </div>
-                                    </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
