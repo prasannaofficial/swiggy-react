@@ -6,7 +6,7 @@ const HeaderComponent = () => {
     return(
         <header className="header">
             <nav className="nav-bar navbar navbar-expand-lg navbar-light main-container">
-                <a className="navbar-brand" href="#">
+                <a className="navbar-brand" href="/">
                     <img src={logo} width='34' height='49' />
                 </a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
