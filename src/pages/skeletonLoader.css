@@ -113,3 +113,10 @@
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
+
+.loader-restaurants-pane-container{
+	background-color: var(--restaurants-pane-bg);
+	min-height: 100vh;
+	padding: 20px 0px;
+	min-height: calc(100vh - 350px);
+}

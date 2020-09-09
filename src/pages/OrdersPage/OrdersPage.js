@@ -228,27 +228,29 @@ class OrdersPage extends Component {
                                     <div className="loader-text">Looking for great food items in this restaurant ...</div>
                                 </div>
                             </div>
-                            <div className="loader-restaurants-pane main-container">
-                                <div className="loader-card-row">
-                                    <div className="loader-card">
-                                        <div className="loader-card-row1"></div>
-                                        <div className="loader-card-row2"></div>
-                                        <div className="loader-card-row3"></div>
-                                    </div>
-                                    <div className="loader-card">
-                                        <div className="loader-card-row1"></div>
-                                        <div className="loader-card-row2"></div>
-                                        <div className="loader-card-row3"></div>
-                                    </div>
-                                    <div className="loader-card">
-                                        <div className="loader-card-row1"></div>
-                                        <div className="loader-card-row2"></div>
-                                        <div className="loader-card-row3"></div>
-                                    </div>
-                                    <div className="loader-card">
-                                        <div className="loader-card-row1"></div>
-                                        <div className="loader-card-row2"></div>
-                                        <div className="loader-card-row3"></div>
+                            <div className="loader-restaurants-pane-container">
+                                <div className="loader-restaurants-pane main-container">
+                                    <div className="loader-card-row">
+                                        <div className="loader-card">
+                                            <div className="loader-card-row1"></div>
+                                            <div className="loader-card-row2"></div>
+                                            <div className="loader-card-row3"></div>
+                                        </div>
+                                        <div className="loader-card">
+                                            <div className="loader-card-row1"></div>
+                                            <div className="loader-card-row2"></div>
+                                            <div className="loader-card-row3"></div>
+                                        </div>
+                                        <div className="loader-card">
+                                            <div className="loader-card-row1"></div>
+                                            <div className="loader-card-row2"></div>
+                                            <div className="loader-card-row3"></div>
+                                        </div>
+                                        <div className="loader-card">
+                                            <div className="loader-card-row1"></div>
+                                            <div className="loader-card-row2"></div>
+                                            <div className="loader-card-row3"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
