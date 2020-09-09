@@ -3,7 +3,7 @@
 =================================*/
 
 /*--------For correcting slick scroll----------*/
-.slick-list{
+.slick-list {
 	padding: 10px;
 }
 
@@ -84,8 +84,8 @@
 	border-bottom: 1px solid var(--rest-head-border-bottom);
 }
 
-.rest-head h1{
-	font-size: 28px;	
+.rest-head h1 {
+	font-size: 28px;
 }
 
 .rest-head ul li {
@@ -104,7 +104,7 @@
 	background-color: var(--restaurants-pane-bg);
 	min-height: 100vh;
 	padding: 20px 0px;
-	/* min-height: calc(100vh - 420px); */
+	min-height: calc(100vh - 420px);
 }
 
 .rest-cards-container {
@@ -289,4 +289,3 @@
 .menu-img img:hover {
 	transform: scale(1.03);
 }
-
