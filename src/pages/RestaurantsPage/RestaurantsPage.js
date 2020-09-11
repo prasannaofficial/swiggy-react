@@ -22,13 +22,24 @@ class RestaurantsPage extends Component {
         this.fetchOffersList();
         this.fetchRestaurantList();
     }
+    
     fetchOffersList = async () => {
-        const response = await fetch(backendLink+"/api/offers");
+        let myHeaders = new Headers();
+        myHeaders.append("x-access-token", localStorage.getItem("token"));
+        const response = await fetch(backendLink+"/api/offers",{
+            method: 'GET',
+            headers: myHeaders
+        });
         const json = await response.json();
         this.setState({offers:json.offers,offersLoaded:true})
     }
     fetchRestaurantList = async () => {
-        const response = await fetch(backendLink+"/api/restaurants");
+        let myHeaders = new Headers();
+        myHeaders.append("x-access-token", localStorage.getItem("token"));
+        const response = await fetch(backendLink+"/api/restaurants",{
+            method: 'GET',
+            headers: myHeaders
+        });
         const json = await response.json();
         this.setState({restaurantsList:json.restaurantsList,restaurantsListLoaded:true})
     }
@@ -81,7 +92,7 @@ class RestaurantsPage extends Component {
     render(){
         return(
             <>
-                <HeaderComponent/>
+                <HeaderComponent history={this.props.history}/>
                 <section className="explore-pane">
                     {
                         this.state.offersLoaded
@@ -149,7 +160,7 @@ class RestaurantsPage extends Component {
                 </section>
             </>
         );
-    };
+    }
 }
 
 export default RestaurantsPage;

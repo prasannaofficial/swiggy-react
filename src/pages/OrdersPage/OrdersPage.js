@@ -24,7 +24,12 @@ class OrdersPage extends Component {
         this.fetchRestaurantDetails(this.props.match.params.id);
     }
     fetchRestaurantDetails = async (restId) => {
-        const response = await fetch(backendLink+"/api/restaurant/"+restId);
+        let myHeaders = new Headers();
+        myHeaders.append("x-access-token", localStorage.getItem("token"));
+        const response = await fetch(backendLink+"/api/restaurant/"+restId,{
+            method: 'GET',
+            headers: myHeaders
+        });
         const json = await response.json();
         let {id,name,area,city,imgLink,cuisines,locality,avgRating,noOfRating,duration,costForTwo,discount,menuCategory,recommended} = json; 
         let menu=recommended.map(el=>{
@@ -78,7 +83,7 @@ class OrdersPage extends Component {
         const id=this.props.match.params.id;
         return(
             <>
-                <HeaderComponent/>
+                <HeaderComponent history={this.props.history}/>
                 {
                     this.state.restaurantLoaded
                     ?   <>
@@ -177,12 +182,6 @@ class OrdersPage extends Component {
                                             <ul>
                                                 <li className="active"><a href="#">Recommended</a></li>
                                                 {this.state.menuCategory.map(el=><li><a href="#">{el}</a></li>)}
-                                                {/* <li><a href="#">Lunch Special</a></li>
-                                                <li><a href="#">Chinese</a></li>
-                                                <li><a href="#">Savouries</a></li>
-                                                <li><a href="#">Sweets</a></li>
-                                                <li><a href="#">Paratha</a></li>
-                                                <li><a href="#">South Indian</a></li> */}
                                             </ul>
                                         </div>
                                         <div className="menu-items-container">
@@ -258,7 +257,7 @@ class OrdersPage extends Component {
                 }
             </>
         );
-    };
+    }
 }
 
 export default OrdersPage;

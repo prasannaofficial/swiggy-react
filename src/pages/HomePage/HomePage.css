@@ -1,0 +1,125 @@
+.homepage-container{
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0,0,0,0.7)),url(img/hero.jpg); */
+    background-size: cover;
+    height: 100vh;
+    background-attachment: fixed;
+    overflow-y: scroll;
+}
+
+.homepage-container::-webkit-scrollbar {
+    display: none;
+}
+
+.homepage{
+    max-width: 1200px;
+    margin:0 auto;
+    padding:20px;
+}
+
+.heading-container{
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 470px) {
+    .heading-container{
+        justify-content: center;
+    }
+}
+
+.logo-image,
+.buttons{
+    margin:10px 0px;
+}
+
+.login-btn,
+.signup-btn{
+    cursor: pointer;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 40px;
+}
+
+.login-btn:focus,
+.login-btn:hover,
+.login-btn:visited,
+.signup-btn:focus,
+.signup-btn:hover,
+.signup-btn:visited{
+    text-decoration: none;
+    color: #fc8019;
+}
+
+.signup-btn{
+    border:2px solid #fc8019;
+    border-radius: 25px;
+}
+
+.signup-btn:hover{
+    color:#fff;
+    background-color: #fc8019;
+}
+
+.form-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height:calc(100vh - 140px);
+}
+
+@media only screen and (max-width: 470px) {
+    .form-wrapper{
+        min-height:calc(100vh - 200px);
+    }
+}
+
+
+.form-container{
+    background-color: rgba(0, 0, 0, 0.507);
+    border-radius:25px;
+    min-width: min(90vw,400px);
+    border:2px solid black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container .heading{
+    width:100%;
+    color: #fff;
+    font-size:35px;
+    text-align: center;
+    margin-bottom:15px;
+}
+
+.form-container label{
+    color:#fff;
+    position: relative;
+    left:0;
+}
+
+.form-container .input-field{
+    width:90%;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.form-container .button{
+    width:90%;
+    background-color: #fc8019;
+    height: 50px;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+    margin-top:10px;
+    padding-top: 10px;
+    color:#fff;
+    font-size:25px;
+}

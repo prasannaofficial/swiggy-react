@@ -2,7 +2,7 @@ import React from 'react';
 import './HeaderComponent.css';
 import logo from '../../img/s logo.png';
 
-const HeaderComponent = () => {
+const HeaderComponent = ({history}) => {
     return(
         <header className="header">
             <nav className="nav-bar navbar navbar-expand-lg navbar-light main-container">
@@ -37,9 +37,13 @@ const HeaderComponent = () => {
                                 <ion-icon name="help-buoy-outline"></ion-icon>Help
                             </a>
                         </li>
-                        <li className="nav-item">
+                        <li className="nav-item" onClick={()=>{
+                            localStorage.setItem("token","");
+                            history.push("/");
+                            return true;
+                        }}>
                             <a className="nav-link" href="#">
-                                <ion-icon name="person-outline"></ion-icon>Prasanna
+                                <ion-icon name="person-outline"></ion-icon>Logout
                             </a>
                         </li>
                         <li className="nav-item">
