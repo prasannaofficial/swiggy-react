@@ -6,7 +6,7 @@ const HeaderComponent = ({history}) => {
     return(
         <header className="header">
             <nav className="nav-bar navbar navbar-expand-lg navbar-light main-container">
-                <a className="navbar-brand" href="/">
+                <a className="navbar-brand" href="/restaurants">
                     <img src={logo} width='34' height='49' />
                 </a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -29,12 +29,15 @@ const HeaderComponent = ({history}) => {
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#">
-                                <ion-icon name="gift-outline"></ion-icon>Offers
+                                <ion-icon name="help-buoy-outline"></ion-icon>Help
                             </a>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">
-                                <ion-icon name="help-buoy-outline"></ion-icon>Help
+                        <li className="nav-item"onClick={()=>{
+                            history.push("/myorders");
+                            return true;
+                        }}>
+                            <a className="nav-link">
+                                <ion-icon name="fast-food-outline"></ion-icon>My Orders
                             </a>
                         </li>
                         <li className="nav-item" onClick={()=>{
@@ -42,7 +45,7 @@ const HeaderComponent = ({history}) => {
                             history.push("/");
                             return true;
                         }}>
-                            <a className="nav-link" href="#">
+                            <a className="nav-link">
                                 <ion-icon name="person-outline"></ion-icon>Logout
                             </a>
                         </li>

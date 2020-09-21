@@ -25,6 +25,11 @@ body {
 	--hotel-location-wrapper-bg:#fff;
 	--hotel-food-items-wrapper-bg:#fff;
 	--menuItem-border-color:#d4d5d9;
+
+	/* Checkout */
+	--checkout-card-bg:#fff;
+	--checkouts-page-bg:#e9ecee;
+
 }
 
 body.dark-mode {
@@ -65,6 +70,10 @@ body.dark-mode {
 	--hotel-location-wrapper-bg:#333333;
 	--hotel-food-items-wrapper-bg:#000;
 	--menuItem-border-color:#565656;
+
+	/* Checkout */
+	--checkouts-page-bg:#000;
+	--checkout-card-bg:#181818;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -108,6 +117,10 @@ body.dark-mode {
 		--hotel-location-wrapper-bg:#333333;
 		--hotel-food-items-wrapper-bg:#000;
 		--menuItem-border-color:#565656;
+
+		/* Checkout */
+		--checkouts-page-bg:#000;
+		--checkout-card-bg:#181818;
 	}
 
 	body.light-mode {
@@ -137,6 +150,10 @@ body.dark-mode {
 		--hotel-location-wrapper-bg:#fff;
 		--hotel-food-items-wrapper-bg:#fff;
 		--menuItem-border-color:#d4d5d9;
+
+		/* Checkout */
+		--checkouts-page-bg:#e9ecee;
+		--checkout-card-bg:#fff;
 	}
 }
 

@@ -5,8 +5,8 @@ import '../skeletonLoader.css';
 import HeaderComponent from '../../components/HeaderComponent/HeaderComponent';
 import RestCard from '../../components/RestCard';
 
-const backendLink="https://sleepy-springs-24187.herokuapp.com";
-// const backendLink="http://localhost:3000";
+// const backendLink="https://sleepy-springs-24187.herokuapp.com";
+const backendLink="http://localhost:3000";
 
 class RestaurantsPage extends Component {
     constructor(props) {
@@ -31,6 +31,11 @@ class RestaurantsPage extends Component {
             headers: myHeaders
         });
         const json = await response.json();
+        if(json.verifiedUser===false){
+            localStorage.setItem("token","");
+            this.props.history.push("/");
+            return;
+        }
         this.setState({offers:json.offers,offersLoaded:true})
     }
     fetchRestaurantList = async () => {
@@ -41,6 +46,11 @@ class RestaurantsPage extends Component {
             headers: myHeaders
         });
         const json = await response.json();
+        if(json.verifiedUser===false){
+            localStorage.setItem("token","");
+            this.props.history.push("/");
+            return;
+        }
         this.setState({restaurantsList:json.restaurantsList,restaurantsListLoaded:true})
     }
     // fetchOffersList() {

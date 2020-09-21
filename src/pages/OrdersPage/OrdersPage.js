@@ -4,8 +4,8 @@ import '../skeletonLoader.css';
 
 import HeaderComponent from '../../components/HeaderComponent/HeaderComponent';
 
-const backendLink="https://sleepy-springs-24187.herokuapp.com";
-// const backendLink="http://localhost:3000";
+// const backendLink="https://sleepy-springs-24187.herokuapp.com";
+const backendLink="http://localhost:3000";
 
 const initialState={
     menuCategory:[],
@@ -31,6 +31,11 @@ class OrdersPage extends Component {
             headers: myHeaders
         });
         const json = await response.json();
+        if(json.verifiedUser===false){
+            localStorage.setItem("token","");
+            this.props.history.push("/");
+            return;
+        }
         let {id,name,area,city,imgLink,cuisines,locality,avgRating,noOfRating,duration,costForTwo,discount,menuCategory,recommended} = json; 
         let menu=recommended.map(el=>{
             let temp={
@@ -164,7 +169,13 @@ class OrdersPage extends Component {
                                                             <div> ₹ {this.state.totalPrice}</div>
                                                         </div>
                                                         <div className="row2">Extra charges may apply</div>
-                                                        <div className="row3">CHECKOUT →</div>
+                                                        <div className="row3" onClick={
+                                                            ()=>{
+                                                                this.props.setMenu(this.state)
+                                                                // this.props.setMenu({hi:"hiii"})
+                                                                this.props.history.push("/checkout")
+                                                            }
+                                                        }>CHECKOUT →</div>
                                                     </div>
                                                 </div>
                                             ):

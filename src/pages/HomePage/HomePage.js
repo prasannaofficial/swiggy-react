@@ -4,8 +4,8 @@ import './HomePage.css';
 import backgroundImage from '../../img/homepage.jpeg'
 import logo from '../../img/swiggy-logo.png'
 
-const backendLink="https://sleepy-springs-24187.herokuapp.com";
-// const backendLink="http://localhost:3000";
+// const backendLink="https://sleepy-springs-24187.herokuapp.com";
+const backendLink="http://localhost:3000";
 
 class HomePage extends Component {
     constructor(props) {
@@ -20,6 +20,20 @@ class HomePage extends Component {
             greenMessage:'',
             redMessage:'',
             formDisabled:''
+        }
+        this.fetchisLoggedin()
+    }
+    fetchisLoggedin = async () => {
+        let myHeaders = new Headers();
+        myHeaders.append("x-access-token", localStorage.getItem("token"));
+        const response = await fetch(backendLink+"/api/isloggedin",{
+            method: 'GET',
+            headers: myHeaders
+        });
+        const json = await response.json();
+        if(json.verifiedUser===true){
+            this.props.history.push("/restaurants");
+            return;
         }
     }
     // async function postData(url = '', data = {}) {
@@ -131,6 +145,8 @@ class HomePage extends Component {
                 signupMail:'',
                 signupPwd:''
             })
+            localStorage.setItem("token",json.token);
+            this.props.history.push("/restaurants");
         }
         else if(json.userInserted===false){
             this.setState({
