@@ -4,8 +4,8 @@ import '../skeletonLoader.css';
 
 import HeaderComponent from '../../components/HeaderComponent/HeaderComponent';
 
-// const backendLink="https://sleepy-springs-24187.herokuapp.com";
-const backendLink="http://localhost:3000";
+const backendLink="https://sleepy-springs-24187.herokuapp.com";
+// const backendLink="http://localhost:3000";
 
 const initialState={
     menuCategory:[],
