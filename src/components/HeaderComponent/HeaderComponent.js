@@ -15,7 +15,7 @@ const HeaderComponent = ({history}) => {
                 <div className="collapse navbar-collapse full-menu" id="collapsibleNavbar">
                     <ul className="navbar-nav mr-auto left-menu">
                         <li className="nav-item">
-                            <a className="nav-link home-menu" href="#">HOME</a>
+                            <a className="nav-link home-menu" href="/restaurants">HOME</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link address">4th Cross Cut Road, Ration Office St...</a>
@@ -36,7 +36,7 @@ const HeaderComponent = ({history}) => {
                             history.push("/myorders");
                             return true;
                         }}>
-                            <a className="nav-link">
+                            <a className="nav-link" href="#">
                                 <ion-icon name="fast-food-outline"></ion-icon>My Orders
                             </a>
                         </li>
@@ -45,7 +45,7 @@ const HeaderComponent = ({history}) => {
                             history.push("/");
                             return true;
                         }}>
-                            <a className="nav-link">
+                            <a className="nav-link" href="#">
                                 <ion-icon name="person-outline"></ion-icon>Logout
                             </a>
                         </li>

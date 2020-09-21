@@ -56,6 +56,7 @@ class CheckoutPage extends Component {
     placeOrder= async ()=>{
         if(this.state.orderplaced)
             return;
+        this.setState({greenMessage:"Please wait we are placing your order!!"})
         let orderMenu=[];
         this.state.menu.forEach(element => {
             if(element.quantity>0){

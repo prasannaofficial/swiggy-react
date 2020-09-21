@@ -20,13 +20,15 @@ class MyOrdersPage extends Component {
             queryString:'',
             offset: 0,
             sortString:"asce",
-            currentPage: 0
+            currentPage: 0,
+            showSpinner:false
         }
     }
     componentDidMount(){
         this.fetchMyOrders()
     }
     fetchMyOrders = async () => {
+        this.setState({showSpinner:true});
         let myHeaders = new Headers();
         myHeaders.append("x-access-token", localStorage.getItem("token"));
         const response = await fetch(`${backendLink}/api/ordershistory?q=${this.state.queryString}&limit=${this.state.limit}&offset=${this.state.offset}&sort=${this.state.sortString}`,{
@@ -41,7 +43,7 @@ class MyOrdersPage extends Component {
         }
         console.log("arr",json.arr)
         let pageCount=Math.ceil(json.length / this.state.limit)
-        this.setState({ordersLoaded:true,myOrders:json.arr,pageCount:pageCount})
+        this.setState({ordersLoaded:true,myOrders:json.arr,pageCount:pageCount,showSpinner:false})
     }
     // receivedData() {
     //     axios
@@ -149,6 +151,13 @@ class MyOrdersPage extends Component {
                                     </ul>
                                 </div>
                             </div>
+                            {
+                                this.state.showSpinner
+                                ?   <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
+                                        <div className="orange-spinner"></div>
+                                    </div>
+                                :   <></>
+                            }
                             {
                                 this.state.myOrders.map(el=>{
                                     let itemsName=[];

@@ -7,6 +7,28 @@
     min-height: 100vh;
 }
 
+.orange-spinner {
+    background: linear-gradient(180deg, #ff5b00, hsl(25deg 100% 50% / 51%) 53%, hsl(0deg 0% 0% / 0%));
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    justify-content: center;
+    animation: rotater 1s infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.orange-spinner:after {
+    width: 42px;
+    height: 42px;
+    content: "";
+    background-color:var(--restaurants-pane-bg);
+    border-radius: 50%;
+}
+
 .myorders-container{
     max-width: 900px;
     margin: 0 auto;
