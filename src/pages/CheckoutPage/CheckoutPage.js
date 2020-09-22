@@ -60,7 +60,6 @@ class CheckoutPage extends Component {
                 orderMenu.push(element)
             }
         });
-        // name,area,imgLink,timestamp
         let myHeaders = new Headers();
         myHeaders.append("x-access-token", localStorage.getItem("token"));
         var urlencoded = new URLSearchParams();

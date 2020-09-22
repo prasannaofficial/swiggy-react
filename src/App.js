@@ -21,7 +21,6 @@ class App extends Component {
   ordersState={}
   setOrdersState(ordersState){
     this.ordersState=ordersState
-    // console.log(this.ordersState);
   }
   render(){
     return(

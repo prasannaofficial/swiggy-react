@@ -1,12 +1,9 @@
 import React,{Component} from 'react';
 import AwesomeDebouncePromise from 'awesome-debounce-promise';
+import ReactPaginate from 'react-paginate';
 import './MyOrdersPage.css';
 import '../skeletonLoader.css';
 import HeaderComponent from '../../components/HeaderComponent/HeaderComponent';
-
-import axios from 'axios';
-import ReactPaginate from 'react-paginate';
-
 
 const backendLink="https://sleepy-springs-24187.herokuapp.com";
 // const backendLink="http://localhost:3000";

@@ -53,16 +53,6 @@ class RestaurantsPage extends Component {
         }
         this.setState({restaurantsList:json.restaurantsList,restaurantsListLoaded:true})
     }
-    // fetchOffersList() {
-    //     fetch(backendLink+"/api/offers")
-    //         .then(res => res.json())
-    //         .then( result => this.setState({offers:result.offers}), console.log)
-    // }
-    // fetchRestaurantList() {
-    //     fetch(backendLink+"/api/restaurants")
-    //         .then(res => res.json())
-    //         .then( result => this.setState({restaurantsList:result.restaurantsList}), console.log)
-    // }
 
     slickSettings = {
         dots: true,
