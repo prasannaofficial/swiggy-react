@@ -12,7 +12,8 @@ class CheckoutPage extends Component {
             ...this.props.ordersState,
             redMessage:'',
             greenMessage:'',
-            orderplaced:false
+            orderplaced:false,
+            isPlacing:false
         };
         console.log(this.state)
     }
@@ -51,8 +52,11 @@ class CheckoutPage extends Component {
         this.setState({menu,cartCount,totalPrice})
     }
     placeOrder= async ()=>{
-        if(this.state.orderplaced)
+        if(this.state.isPlacing)
             return;
+        else{
+            this.setState({isPlacing:true})
+        }
         this.setState({greenMessage:"Please wait we are placing your order!!"})
         let orderMenu=[];
         this.state.menu.forEach(element => {
@@ -81,7 +85,7 @@ class CheckoutPage extends Component {
         }
         console.log("json",json)
         if(json.orderplaced===true){
-            this.setState({greenMessage:json.message,redMessage:"",orderplaced:true})
+            this.setState({greenMessage:json.message,redMessage:"",orderplaced:true,isPlacing:false})
         }
     }
     render(){
