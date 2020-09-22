@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import AwesomeDebouncePromise from 'awesome-debounce-promise';
 import './MyOrdersPage.css';
 import '../skeletonLoader.css';
 import HeaderComponent from '../../components/HeaderComponent/HeaderComponent';
@@ -45,25 +46,7 @@ class MyOrdersPage extends Component {
         let pageCount=Math.ceil(json.length / this.state.limit)
         this.setState({ordersLoaded:true,myOrders:json.arr,pageCount:pageCount,showSpinner:false})
     }
-    // receivedData() {
-    //     axios
-    //         .get(`https://jsonplaceholder.typicode.com/photos`)
-    //         .then(res => {
-
-    //             const data = res.data;
-    //             const slice = data.slice(this.state.offset, this.state.offset + this.state.limit)
-    //             const postData = slice.map(pd => <React.Fragment>
-    //                 <p>{pd.title}</p>
-    //                 <img src={pd.thumbnailUrl} alt=""/>
-    //             </React.Fragment>)
-
-    //             this.setState({
-    //                 pageCount: Math.ceil(data.length / this.state.limit),
-                   
-    //                 postData
-    //             })
-    //         });
-    // }
+    debouncedFetchMyOrders = AwesomeDebouncePromise(this.fetchMyOrders, 1200);
     sortNewestHandler=()=>{
         this.setState({
             queryString:'',
@@ -109,8 +92,8 @@ class MyOrdersPage extends Component {
             offset: 0,
             sortString:"asce",
             currentPage: 0
-        }, () => {
-            this.fetchMyOrders()
+        }, async() => {
+            await this.debouncedFetchMyOrders()
         })
     }
     handlePageClick = (e) => {
