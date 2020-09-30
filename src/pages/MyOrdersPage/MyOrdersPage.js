@@ -42,7 +42,6 @@ class MyOrdersPage extends Component {
             this.props.history.push("/");
             return;
         }
-        console.log("arr", json.arr);
         let pageCount = Math.ceil(json.length / this.state.limit);
         this.setState({
             ordersLoaded: true,

@@ -16,14 +16,12 @@ class CheckoutPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            // ...this.props.ordersState,
             ...this.props.myOrders,
             redMessage: "",
             greenMessage: "",
             orderplaced: false,
             isPlacing: false,
         };
-        console.log(this.state);
     }
     decrement = (id) => {
         let menu = [...this.state.menu];
@@ -92,7 +90,6 @@ class CheckoutPage extends Component {
             this.props.history.push("/");
             return;
         }
-        console.log("json", json);
         if (json.orderplaced === true) {
             this.setState({
                 greenMessage: json.message,

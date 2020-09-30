@@ -283,9 +283,6 @@ class OrdersPage extends Component {
                                                 <div
                                                     className="row3"
                                                     onClick={() => {
-                                                        // this.props.setMenu(
-                                                        //     this.state
-                                                        // );
                                                         this.props.setMenu(
                                                             this.state
                                                         );
