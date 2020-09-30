@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./CheckoutPage.css";
 import HeaderComponent from "../../components/HeaderComponent/HeaderComponent";
+import CartItemComponent from "../../components/CartItemComponent";
 
 // const backendLink="https://sleepy-springs-24187.herokuapp.com";
 const backendLink = "http://localhost:3000";
@@ -127,43 +128,11 @@ class CheckoutPage extends Component {
                                 {this.state.menu.map((menuItem) => {
                                     if (menuItem.quantity > 0) {
                                         return (
-                                            <div className="cartItem">
-                                                <div className="cartItem-col">
-                                                    <ion-icon
-                                                        className="veg-icon"
-                                                        name="heart-circle-outline"
-                                                    ></ion-icon>
-                                                </div>
-                                                <div className="cartItem-name cartItem-col">
-                                                    {menuItem.name}
-                                                </div>
-                                                <div className="addItem cartItem-col">
-                                                    <div
-                                                        onClick={() =>
-                                                            this.decrement(
-                                                                menuItem.id
-                                                            )
-                                                        }
-                                                    >
-                                                        -
-                                                    </div>
-                                                    <div>
-                                                        {menuItem.quantity}
-                                                    </div>
-                                                    <div
-                                                        onClick={() =>
-                                                            this.increment(
-                                                                menuItem.id
-                                                            )
-                                                        }
-                                                    >
-                                                        +
-                                                    </div>
-                                                </div>
-                                                <div className="cartItem-col">
-                                                    ₹{menuItem.subTotal}
-                                                </div>
-                                            </div>
+                                            <CartItemComponent
+                                                menuItem={menuItem}
+                                                increment={this.increment}
+                                                decrement={this.decrement}
+                                            />
                                         );
                                     }
                                 })}

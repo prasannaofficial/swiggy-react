@@ -5,6 +5,8 @@ import "../skeletonLoader.css";
 
 import HeaderComponent from "../../components/HeaderComponent/HeaderComponent";
 import { setMenu } from "../../redux/actions";
+import CartItemComponent from "../../components/CartItemComponent";
+import MenuItemComponent from "../../components/MenuItemComponent";
 
 // const backendLink="https://sleepy-springs-24187.herokuapp.com";
 const backendLink = "http://localhost:3000";
@@ -223,48 +225,15 @@ class OrdersPage extends Component {
                                             {this.state.menu.map((menuItem) => {
                                                 if (menuItem.quantity > 0) {
                                                     return (
-                                                        <div className="cartItem">
-                                                            <div className="cartItem-col">
-                                                                <ion-icon
-                                                                    className="veg-icon"
-                                                                    name="heart-circle-outline"
-                                                                ></ion-icon>
-                                                            </div>
-                                                            <div className="cartItem-name cartItem-col">
-                                                                {menuItem.name}
-                                                            </div>
-                                                            <div className="addItem cartItem-col">
-                                                                <div
-                                                                    onClick={() =>
-                                                                        this.decrement(
-                                                                            menuItem.id
-                                                                        )
-                                                                    }
-                                                                >
-                                                                    -
-                                                                </div>
-                                                                <div>
-                                                                    {
-                                                                        menuItem.quantity
-                                                                    }
-                                                                </div>
-                                                                <div
-                                                                    onClick={() =>
-                                                                        this.increment(
-                                                                            menuItem.id
-                                                                        )
-                                                                    }
-                                                                >
-                                                                    +
-                                                                </div>
-                                                            </div>
-                                                            <div className="cartItem-col">
-                                                                ₹
-                                                                {
-                                                                    menuItem.subTotal
-                                                                }
-                                                            </div>
-                                                        </div>
+                                                        <CartItemComponent
+                                                            menuItem={menuItem}
+                                                            increment={
+                                                                this.increment
+                                                            }
+                                                            decrement={
+                                                                this.decrement
+                                                            }
+                                                        />
                                                     );
                                                 }
                                             })}
@@ -330,62 +299,15 @@ class OrdersPage extends Component {
                                             </p>
                                             {this.state.menu.map((menuItem) => {
                                                 return (
-                                                    <div className="menuItem">
-                                                        <div className="left">
-                                                            <div className="row1">
-                                                                <ion-icon
-                                                                    className="veg-icon"
-                                                                    name="heart-circle-outline"
-                                                                ></ion-icon>
-                                                                <ion-icon
-                                                                    className="star-icon"
-                                                                    name="star"
-                                                                ></ion-icon>
-                                                                <span>
-                                                                    Bestseller
-                                                                </span>
-                                                            </div>
-                                                            <div className="row2">
-                                                                {menuItem.name}
-                                                            </div>
-                                                            <div className="row3">
-                                                                ₹
-                                                                {menuItem.price}
-                                                            </div>
-                                                        </div>
-                                                        <div className="right">
-                                                            <img
-                                                                src={
-                                                                    menuItem.img
-                                                                }
-                                                            />
-                                                            <div className="addItem">
-                                                                <div
-                                                                    onClick={() =>
-                                                                        this.decrement(
-                                                                            menuItem.id
-                                                                        )
-                                                                    }
-                                                                >
-                                                                    -
-                                                                </div>
-                                                                <div>
-                                                                    {
-                                                                        menuItem.quantity
-                                                                    }
-                                                                </div>
-                                                                <div
-                                                                    onClick={() =>
-                                                                        this.increment(
-                                                                            menuItem.id
-                                                                        )
-                                                                    }
-                                                                >
-                                                                    +
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    <MenuItemComponent
+                                                        menuItem={menuItem}
+                                                        increment={
+                                                            this.increment
+                                                        }
+                                                        decrement={
+                                                            this.decrement
+                                                        }
+                                                    />
                                                 );
                                             })}
                                         </div>
