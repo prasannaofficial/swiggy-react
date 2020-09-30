@@ -5,9 +5,7 @@ import "./MyOrdersPage.css";
 import "../skeletonLoader.css";
 import HeaderComponent from "../../components/HeaderComponent/HeaderComponent";
 import MyOrderComponent from "../../components/MyOrderComponent";
-
-// const backendLink="https://sleepy-springs-24187.herokuapp.com";
-const backendLink = "http://localhost:3000";
+import { backendLink } from "../../constants";
 
 class MyOrdersPage extends Component {
     constructor(props) {

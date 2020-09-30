@@ -3,9 +3,7 @@ import { connect } from "react-redux";
 import "./CheckoutPage.css";
 import HeaderComponent from "../../components/HeaderComponent/HeaderComponent";
 import CartItemComponent from "../../components/CartItemComponent";
-
-// const backendLink="https://sleepy-springs-24187.herokuapp.com";
-const backendLink = "http://localhost:3000";
+import { backendLink } from "../../constants";
 
 const mapStateTOProps = (state) => {
     return {

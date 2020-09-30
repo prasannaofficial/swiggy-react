@@ -7,9 +7,7 @@ import HeaderComponent from "../../components/HeaderComponent/HeaderComponent";
 import { setMenu } from "../../redux/actions";
 import CartItemComponent from "../../components/CartItemComponent";
 import MenuItemComponent from "../../components/MenuItemComponent";
-
-// const backendLink="https://sleepy-springs-24187.herokuapp.com";
-const backendLink = "http://localhost:3000";
+import { backendLink } from "../../constants";
 
 const mapDispatchToProps = (dispath) => {
     return {

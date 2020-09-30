@@ -3,9 +3,7 @@ import "./HomePage.css";
 
 import backgroundImage from "../../img/homepage.jpeg";
 import logo from "../../img/swiggy-logo.png";
-
-// const backendLink="https://sleepy-springs-24187.herokuapp.com";
-const backendLink = "http://localhost:3000";
+import { backendLink } from "../../constants";
 
 class HomePage extends Component {
     constructor(props) {

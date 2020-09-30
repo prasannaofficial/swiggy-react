@@ -4,9 +4,7 @@ import "./RestaurantsPage.css";
 import "../skeletonLoader.css";
 import HeaderComponent from "../../components/HeaderComponent/HeaderComponent";
 import RestCard from "../../components/RestCard";
-
-// const backendLink="https://sleepy-springs-24187.herokuapp.com";
-const backendLink = "http://localhost:3000";
+import { backendLink } from "../../constants";
 
 class RestaurantsPage extends Component {
     constructor(props) {
