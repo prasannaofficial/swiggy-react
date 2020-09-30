@@ -1,5 +1,5 @@
-.hotel-location-wrapper{
-    background-color:var(--hotel-location-wrapper-bg);
+.hotel-location-wrapper {
+    background-color: var(--hotel-location-wrapper-bg);
 }
 
 .hotel-location-container {
@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     font-size: 10px;
-    color: #93959f
+    color: #93959f;
 }
 
 .hotel-intro-container {
@@ -43,38 +43,38 @@
 
 .middle-section .title {
     font-weight: 300;
-    font-size: 32px
+    font-size: 32px;
 }
 
 .middle-section .tag-line {
-    opacity: .7;
+    opacity: 0.7;
     font-size: 15px;
-    margin-top: 8px
+    margin-top: 8px;
 }
 
 .middle-section .address {
-    opacity: .7;
+    opacity: 0.7;
     font-size: 15px;
-    margin-top: 12px
+    margin-top: 12px;
 }
 
 .middle-section .info {
     display: flex;
-    margin-top: 21px
+    margin-top: 21px;
 }
 
 .info .col1 {
-    padding-right: 35px
+    padding-right: 35px;
 }
 
 .info .col2 {
     padding: 0 35px;
     border-left: 1px solid #ffffff33;
-    border-right: 1px solid #ffffff33
+    border-right: 1px solid #ffffff33;
 }
 
 .info .col3 {
-    padding-left: 35px
+    padding-left: 35px;
 }
 
 .info .line1 {
@@ -83,7 +83,7 @@
 }
 
 .info .line2 {
-    opacity: .7;
+    opacity: 0.7;
     font-weight: 400;
     font-size: 12px;
     margin-top: 5px;
@@ -119,7 +119,7 @@
     font-size: 20px;
 }
 
-.hotel-food-items-wrapper{
+.hotel-food-items-wrapper {
     background-color: var(--hotel-food-items-wrapper-bg);
 }
 
@@ -143,13 +143,13 @@
     /* min-width: 300px; */
 }
 
-.empty-cart img{
+.empty-cart img {
     margin-top: 47px;
-    opacity: .5;
+    opacity: 0.5;
     width: 338.11px;
 }
 
-.empty-cart div{
+.empty-cart div {
     color: #93959f;
     margin-top: 15px;
     font-size: 16px;
@@ -353,7 +353,7 @@
     color: #60b246;
     font-weight: 600;
     text-align: center;
-}   
+}
 
 .menuItem .right .addItem div {
     align-items: center;
@@ -369,19 +369,17 @@
     color: #7e7e7e;
 }
 
-
 /*---------------------------
         MEDIA QUERIES
 ---------------------------*/
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-    .empty-cart img{
+    .empty-cart img {
         width: 338.11px;
     }
 }
@@ -392,13 +390,13 @@
         max-width: 150px;
         min-width: 150px;
     }
-    .menu-headings-container{
+    .menu-headings-container {
         min-width: 150px;
     }
     .menu-items-container {
         min-width: 450px;
     }
-    .empty-cart img{
+    .empty-cart img {
         width: 308.11px;
     }
 }
@@ -409,16 +407,13 @@
         max-width: 200px;
         min-width: 200px;
     }
-    .menu-headings-container{
+    .menu-headings-container {
         min-width: 200px;
     }
     .menu-items-container {
         min-width: 600px;
     }
-    .empty-cart img{
+    .empty-cart img {
         width: 358.58px;
     }
 }
-
-
-

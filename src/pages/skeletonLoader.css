@@ -1,78 +1,83 @@
 .explore-pane {
-	margin-top: 80px;
-	min-height: 305px;
-	background-color: var(--explore-pane-bg);
-	padding-top: 20px;
-	padding-bottom: 20px;
+    margin-top: 80px;
+    min-height: 305px;
+    background-color: var(--explore-pane-bg);
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .loader-explore-pane {
-	height: 280px;
-	color: hsla(0, 0%, 100%, .8);
-	text-align: center;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	padding: 0 20px;
+    height: 280px;
+    color: hsla(0, 0%, 100%, 0.8);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
 }
 
 .spinner-container {
-	margin: 0 auto;
-	position: relative;
+    margin: 0 auto;
+    position: relative;
 }
 
 .spinner {
-	background: linear-gradient(180deg, #ecebeb, hsla(0, 3%, 92%, .51) 53%, hsla(0, 3%, 92%, 0));
-	display: -ms-flexbox;
-	display: flex;
-	align-items: center;
-	border-radius: 50%;
-	justify-content: center;
-	animation: rotater 1s infinite;
-	animation-fill-mode: forwards;
-	animation-timing-function: linear;
-	position: relative;
-	width: 80px;
-	height: 80px;
+    background: linear-gradient(
+        180deg,
+        #ecebeb,
+        hsla(0, 3%, 92%, 0.51) 53%,
+        hsla(0, 3%, 92%, 0)
+    );
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    justify-content: center;
+    animation: rotater 1s infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    position: relative;
+    width: 80px;
+    height: 80px;
 }
 
 @keyframes rotater {
-	0% {
-		transform: rotate(0deg)
-	}
+    0% {
+        transform: rotate(0deg);
+    }
 
-	to {
-		transform: rotate(1turn)
-	}
+    to {
+        transform: rotate(1turn);
+    }
 }
 
 .spinner:after {
-	width: 72px;
-	height: 72px;
-	content: "";
-	background-color: #171a29;
-	border-radius: 50%;
+    width: 72px;
+    height: 72px;
+    content: "";
+    background-color: #171a29;
+    border-radius: 50%;
 }
 
 .spinner-icon {
-	width: 40px;
-	height: 40px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate3d(-50%, -50%, 0);
-	margin-left: 2px;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    margin-left: 2px;
 }
 
 .loader-text {
-	font-size: 28px;
-	font-weight: 300;
-	margin: 37px auto 0;
+    font-size: 28px;
+    font-weight: 300;
+    margin: 37px auto 0;
 }
 
-.loader-restaurants-pane{
-	margin:0 auto;
-	max-width: 1200px;
+.loader-restaurants-pane {
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
 .loader-heading {
@@ -84,47 +89,47 @@
 
 .loader-card-row {
     display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
-.loader-card{
-	width: 254px;
+.loader-card {
+    width: 254px;
     margin: 10px 10px;
 }
 
 .loader-card-row1 {
     background: #eef0f5;
     width: 254px;
-    height: 160px
+    height: 160px;
 }
 
 .loader-card-row2 {
     margin-top: 20px;
-	width: 134px;
-	background: #eef0f5;
+    width: 134px;
+    background: #eef0f5;
     height: 10px;
 }
 
 .loader-card-row3 {
     margin-top: 12px;
-	width: 94px;
-	background: #eef0f5;
+    width: 94px;
+    background: #eef0f5;
     height: 10px;
 }
 
 .loader-explore-pane-container {
-	margin-top: 80px;
-	max-height: 270px;
-	background-color: var(--explore-pane-bg);
-	padding-top: 20px;
-	padding-bottom: 20px;
+    margin-top: 80px;
+    max-height: 270px;
+    background-color: var(--explore-pane-bg);
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
-.loader-restaurants-pane-container{
-	background-color: var(--restaurants-pane-bg);
-	min-height: 100vh;
-	padding: 20px 0px;
-	min-height: calc(100vh - 350px);
+.loader-restaurants-pane-container {
+    background-color: var(--restaurants-pane-bg);
+    min-height: 100vh;
+    padding: 20px 0px;
+    min-height: calc(100vh - 350px);
 }
