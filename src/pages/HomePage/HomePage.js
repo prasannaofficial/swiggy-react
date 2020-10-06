@@ -22,18 +22,20 @@ const HomePage = (props) => {
     fetchisLoggedin();
   }, []);
 
-  const fetchisLoggedin = async () => {
+  const fetchisLoggedin = () => {
     let myHeaders = new Headers();
     myHeaders.append("x-access-token", localStorage.getItem("token"));
-    const response = await fetch(backendLink + "/api/isloggedin", {
+    fetch(backendLink + "/api/isloggedin", {
       method: "GET",
       headers: myHeaders,
-    });
-    const json = await response.json();
-    if (json.verifiedUser === true) {
-      props.history.push("/restaurants");
-      return;
-    }
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.verifiedUser === true) {
+          props.history.push("/restaurants");
+          return;
+        }
+      });
   };
 
   const postLogin = async (email, password) => {

@@ -1,33 +1,29 @@
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
+import { connect } from "react-redux";
 import "./RestaurantsPage.css";
 import "../skeletonLoader.css";
 import HeaderComponent from "../../components/HeaderComponent/HeaderComponent";
 import RestCard from "../../components/RestCard";
 import { backendLink } from "../../constants";
+import { fetchOffersAction } from "../../redux/actions";
 
+const mapStateTOProps = (state) => {
+  return {
+    offers: state.fetchOffersReducer.offers,
+    offersLoaded: state.fetchOffersReducer.offersLoaded,
+    error: state.fetchOffersReducer.error,
+  };
+};
+
+const mapDispatchToProps = (dispath) => {
+  return {
+    fetchOffersAction: () => dispath(fetchOffersAction()),
+  };
+};
 const RestaurantsPage = (props) => {
-  const [offers, setOffers] = useState([]);
-  const [offersLoaded, setOffersLoaded] = useState(false);
   const [restaurantsList, setRestaurantsList] = useState([]);
   const [restaurantsListLoaded, setRestaurantsListLoaded] = useState(false);
-
-  const fetchOffersList = async () => {
-    let myHeaders = new Headers();
-    myHeaders.append("x-access-token", localStorage.getItem("token"));
-    const response = await fetch(backendLink + "/api/offers", {
-      method: "GET",
-      headers: myHeaders,
-    });
-    const json = await response.json();
-    if (json.verifiedUser === false) {
-      localStorage.setItem("token", "");
-      props.history.push("/");
-      return;
-    }
-    setOffers(json.offers);
-    setOffersLoaded(true);
-  };
   const fetchRestaurantList = async () => {
     let myHeaders = new Headers();
     myHeaders.append("x-access-token", localStorage.getItem("token"));
@@ -46,7 +42,7 @@ const RestaurantsPage = (props) => {
   };
 
   useEffect(() => {
-    fetchOffersList();
+    props.fetchOffersAction();
     fetchRestaurantList();
   }, []);
 
@@ -91,9 +87,9 @@ const RestaurantsPage = (props) => {
     <>
       <HeaderComponent history={props.history} />
       <section className="explore-pane">
-        {offersLoaded ? (
+        {props.offersLoaded ? (
           <Slider className="image-container main-container" {...slickSettings}>
-            {offers.map((image) => (
+            {props.offers.map((image) => (
               <img className="explore-img" src={image} />
             ))}
           </Slider>
@@ -170,4 +166,4 @@ const RestaurantsPage = (props) => {
   );
 };
 
-export default RestaurantsPage;
+export default connect(mapStateTOProps, mapDispatchToProps)(RestaurantsPage);

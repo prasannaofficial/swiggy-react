@@ -15,6 +15,7 @@ const App = () => {
       document.body.classList.toggle("light-mode");
     }
   }, []);
+  
   return (
     <BrowserRouter>
       <Route exact path={"/"} component={HomePage}></Route>

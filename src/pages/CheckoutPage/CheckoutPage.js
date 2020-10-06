@@ -7,7 +7,7 @@ import { backendLink } from "../../constants";
 
 const mapStateTOProps = (state) => {
   return {
-    myOrders: state.myOrders,
+    myOrders: state.setMenuReducer.myOrders,
   };
 };
 
