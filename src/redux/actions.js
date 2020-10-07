@@ -3,6 +3,7 @@ import {
   FETCH_OFFERS_PENDING,
   FETCH_OFFERS_SUCCESS,
   FETCH_OFFERS_FAILURE,
+  FETCH_RESTAURANTSLIST,
 } from "./constants";
 import { backendLink } from "../constants";
 
@@ -31,4 +32,11 @@ export const fetchOffersAction = () => (dispatch) => {
       }
     })
     .catch((err) => dispatch({ type: FETCH_OFFERS_FAILURE, payLoad: err }));
+};
+
+export const fetchRestaurantsListAction = () => {
+  console.log("Hello world");
+  return {
+    type: FETCH_RESTAURANTSLIST,
+  };
 };

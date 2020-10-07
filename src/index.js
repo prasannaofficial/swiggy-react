@@ -3,13 +3,28 @@ import ReactDOM from "react-dom";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import thunkMiddleWare from "redux-thunk";
+import createSagaMiddleware from "redux-saga";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { setMenuReducer, fetchOffersReducer } from "./redux/reducer";
+import {
+  setMenuReducer,
+  fetchOffersReducer,
+  fetchRestaurantsListReducer,
+} from "./redux/reducer";
+import rootSaga from "./redux/sagas";
 
-const rootReducer = combineReducers({ setMenuReducer, fetchOffersReducer });
-const store = createStore(rootReducer, applyMiddleware(thunkMiddleWare));
+const sagaMiddleware = createSagaMiddleware();
+const rootReducer = combineReducers({
+  setMenuReducer,
+  fetchOffersReducer,
+  fetchRestaurantsListReducer,
+});
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunkMiddleWare, sagaMiddleware)
+);
+sagaMiddleware.run(rootSaga);
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

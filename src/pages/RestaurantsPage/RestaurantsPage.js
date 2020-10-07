@@ -1,49 +1,38 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Slider from "react-slick";
 import { connect } from "react-redux";
 import "./RestaurantsPage.css";
 import "../skeletonLoader.css";
 import HeaderComponent from "../../components/HeaderComponent/HeaderComponent";
 import RestCard from "../../components/RestCard";
-import { backendLink } from "../../constants";
-import { fetchOffersAction } from "../../redux/actions";
+import {
+  fetchOffersAction,
+  fetchRestaurantsListAction,
+} from "../../redux/actions";
 
 const mapStateTOProps = (state) => {
   return {
     offers: state.fetchOffersReducer.offers,
     offersLoaded: state.fetchOffersReducer.offersLoaded,
-    error: state.fetchOffersReducer.error,
+    offersError: state.fetchOffersReducer.error,
+    restaurantsList: state.fetchRestaurantsListReducer.restaurantsList,
+    restaurantsListLoaded:
+      state.fetchRestaurantsListReducer.restaurantsListLoaded,
+    restaurantsListError: state.fetchRestaurantsListReducer.error,
   };
 };
 
-const mapDispatchToProps = (dispath) => {
-  return {
-    fetchOffersAction: () => dispath(fetchOffersAction()),
-  };
+const mapDispatchToProps = {
+  fetchOffersAction: fetchOffersAction,
+  fetchRestaurantsListAction: fetchRestaurantsListAction,
 };
+
 const RestaurantsPage = (props) => {
-  const [restaurantsList, setRestaurantsList] = useState([]);
-  const [restaurantsListLoaded, setRestaurantsListLoaded] = useState(false);
-  const fetchRestaurantList = async () => {
-    let myHeaders = new Headers();
-    myHeaders.append("x-access-token", localStorage.getItem("token"));
-    const response = await fetch(backendLink + "/api/restaurants", {
-      method: "GET",
-      headers: myHeaders,
-    });
-    const json = await response.json();
-    if (json.verifiedUser === false) {
-      localStorage.setItem("token", "");
-      props.history.push("/");
-      return;
-    }
-    setRestaurantsList(json.restaurantsList);
-    setRestaurantsListLoaded(true);
-  };
-
   useEffect(() => {
     props.fetchOffersAction();
-    fetchRestaurantList();
+    props.fetchRestaurantsListAction();
+    console.log(props.fetchOffersAction);
+    console.log(props.fetchRestaurantsListAction);
   }, []);
 
   const slickSettings = {
@@ -109,10 +98,10 @@ const RestaurantsPage = (props) => {
         )}
       </section>
       <section className="restaurants-pane">
-        {restaurantsListLoaded ? (
+        {props.restaurantsListLoaded ? (
           <>
             <div className="rest-head main-container">
-              <h1>{restaurantsList.length} restaurants</h1>
+              <h1>{props.restaurantsList.length} restaurants</h1>
               <ul>
                 <li>
                   <span>Relavance</span>
@@ -128,7 +117,7 @@ const RestaurantsPage = (props) => {
             </div>
             <div className="rest-cards-container main-container">
               <div className="rest-cards-row">
-                {restaurantsList.map((obj) => (
+                {props.restaurantsList.map((obj) => (
                   <RestCard obj={obj} history={props.history} />
                 ))}
               </div>

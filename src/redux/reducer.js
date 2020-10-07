@@ -3,6 +3,8 @@ import {
   FETCH_OFFERS_PENDING,
   FETCH_OFFERS_SUCCESS,
   FETCH_OFFERS_FAILURE,
+  FETCH_RESTAURANTSLIST,
+  RESTAURANTSLIST_RECEIVED,
 } from "./constants";
 
 const initialStateMenu = {
@@ -50,6 +52,35 @@ export const fetchOffersReducer = (state = initialStateOffers, action) => {
         error: action.payLoad,
       };
       break;
+    default:
+      return state;
+  }
+};
+
+const initialStateRestaurants = {
+  restaurantsListLoaded: false,
+  restaurantsList: [],
+  error: "",
+};
+
+export const fetchRestaurantsListReducer = (
+  state = initialStateRestaurants,
+  action
+) => {
+  console.log("hello world", action.type, action.payLoad);
+  switch (action.type) {
+    case FETCH_RESTAURANTSLIST:
+      return {
+        ...state,
+        restaurantsListLoaded: false,
+      };
+      break;
+    case RESTAURANTSLIST_RECEIVED:
+      return {
+        ...state,
+        restaurantsListLoaded: true,
+        restaurantsList: action.payLoad,
+      };
     default:
       return state;
   }
