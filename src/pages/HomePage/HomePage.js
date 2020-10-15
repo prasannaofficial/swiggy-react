@@ -31,8 +31,11 @@ const HomePage = (props) => {
     })
       .then((res) => res.json())
       .then((res) => {
-        if (res.verifiedUser === true) {
+        if (res.verifiedUser === true && res.role === "user") {
           props.history.push("/restaurants");
+          return;
+        } else if (res.verifiedUser === true && res.role === "admin") {
+          props.history.push("/admin");
           return;
         }
       });
@@ -57,7 +60,8 @@ const HomePage = (props) => {
     const json = await response.json();
     if (json.loggedin === true) {
       localStorage.setItem("token", json.token);
-      props.history.push("/restaurants");
+      if (json.role === "user") props.history.push("/restaurants");
+      else props.history.push("/admin");
     } else if (json.loggedin === false) {
       setGreenMessage("");
       setRedMessage(json.message);

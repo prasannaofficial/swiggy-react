@@ -9,6 +9,7 @@ import {
   fetchOffersAction,
   fetchRestaurantsListAction,
 } from "../../redux/actions";
+import { backendLink } from "../../constants";
 
 const mapStateTOProps = (state) => {
   return {
@@ -29,11 +30,27 @@ const mapDispatchToProps = {
 
 const RestaurantsPage = (props) => {
   useEffect(() => {
-    props.fetchOffersAction();
-    props.fetchRestaurantsListAction();
-    console.log(props.fetchOffersAction);
-    console.log(props.fetchRestaurantsListAction);
+    fetchisLoggedin();
   }, []);
+
+  const fetchisLoggedin = () => {
+    let myHeaders = new Headers();
+    myHeaders.append("x-access-token", localStorage.getItem("token"));
+    fetch(backendLink + "/api/isloggedin", {
+      method: "GET",
+      headers: myHeaders,
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.verifiedUser === false || res.role !== "user") {
+          props.history.push("/");
+          return;
+        } else {
+          props.fetchOffersAction();
+          props.fetchRestaurantsListAction();
+        }
+      });
+  };
 
   const slickSettings = {
     dots: true,

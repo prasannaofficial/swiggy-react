@@ -1,183 +1,199 @@
 .myorders-wrapper {
-    background-color: var(--restaurants-pane-bg);
-    padding: 80px 20px 0px;
-    /* display: flex;
+  background-color: var(--restaurants-pane-bg);
+  padding: 80px 20px 0px;
+  /* display: flex;
     flex-direction: column; */
-    padding-bottom: 50px;
-    min-height: 100vh;
+  padding-bottom: 50px;
+  min-height: 100vh;
 }
 
 .orange-spinner {
-    background: linear-gradient(
-        180deg,
-        #ff5b00,
-        hsl(25deg 100% 50% / 51%) 53%,
-        hsl(0deg 0% 0% / 0%)
-    );
-    display: flex;
-    align-items: center;
-    border-radius: 50%;
-    justify-content: center;
-    animation: rotater 1s infinite;
-    animation-fill-mode: forwards;
-    animation-timing-function: linear;
-    position: relative;
-    width: 50px;
-    height: 50px;
+  background: linear-gradient(
+    180deg,
+    #ff5b00,
+    hsl(25deg 100% 50% / 51%) 53%,
+    hsl(0deg 0% 0% / 0%)
+  );
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  justify-content: center;
+  animation: rotater 1s infinite;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  position: relative;
+  width: 50px;
+  height: 50px;
 }
 
 .orange-spinner:after {
-    width: 42px;
-    height: 42px;
-    content: "";
-    background-color: var(--restaurants-pane-bg);
-    border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  content: "";
+  background-color: var(--restaurants-pane-bg);
+  border-radius: 50%;
 }
 
 .myorders-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding-top: 10px;
-    padding-bottom: 1px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 1px;
 }
 
 .myorders-container h1 {
-    font-size: 24px;
-    font-weight: 600;
+  font-size: 24px;
+  font-weight: 600;
 }
 
 .myorders-container .head-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .head-section div ul li {
-    display: inline-block;
-    font-size: 15px;
-    margin-top: 10px;
-    margin-left: 18px;
-    /* cursor: pointer; */
+  display: inline-block;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-left: 18px;
+  /* cursor: pointer; */
 }
 
 .head-section a,
 .head-section a:active {
-    color: inherit;
+  color: inherit;
 }
 
 .head-section a:hover,
 .head-section a:focus {
-    color: #fc8019;
+  color: #fc8019;
 }
 
 .pastorder-container {
-    border: 1px solid #d4d5d9;
-    padding: 30px;
-    margin: 24px 0 37px;
+  border: 1px solid #d4d5d9;
+  padding: 30px;
+  margin: 24px 0 37px;
 }
 
 .pastorder-container .top {
-    padding-bottom: 20px;
-    display: flex;
+  padding-bottom: 20px;
+  display: flex;
 }
 
 .pastorder-container .top .left-img {
-    width: 150px;
-    height: 100px;
+  width: 150px;
+  height: 100px;
 }
 
 .pastorder-container .top .right-detail {
-    position: relative;
-    padding-left: 18px;
+  position: relative;
+  padding-left: 18px;
 }
 
 .pastorder-container .top .right-detail .restname {
-    font-size: 17px;
-    font-weight: 500;
+  font-size: 17px;
+  font-weight: 500;
 }
 
 .pastorder-container .top .right-detail .restarea {
-    font-size: 13px;
-    margin-top: 3px;
+  font-size: 13px;
+  margin-top: 3px;
 }
 
 .pastorder-container .top .right-detail .order-details {
-    margin-top: 6px;
-    font-size: 12px;
+  margin-top: 6px;
+  font-size: 12px;
 }
 
 .pastorder-container .top .right-detail .order-details span {
-    text-transform: uppercase;
-    max-width: 100px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  text-transform: uppercase;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .pastorder-container .top .right-detail .view-details-btn {
-    margin-top: 14px;
-    color: #fc8019;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    letter-spacing: -0.3px;
-    display: inline-block;
+  margin-top: 14px;
+  color: #fc8019;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: -0.3px;
+  display: inline-block;
 }
 
 .pastorder-container .bottom {
-    padding-top: 20px;
-    position: relative;
+  padding-top: 20px;
+  position: relative;
 }
 
 .pastorder-container .bottom .row1 {
-    display: flex;
-    justify-content: space-between;
-    font-size: 15px;
-    line-height: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  line-height: 20px;
 }
 
 .pastorder-container .bottom .row1 div:first-child {
-    max-width: 70%;
+  max-width: 70%;
 }
 
 .pastorder-container .bottom .row2 {
-    display: flex;
+  display: flex;
 }
 
 .pastorder-container .bottom .row2 a {
-    border: 1px solid #fc8019;
-    margin-top: 20px;
-    margin-right: 20px;
-    color: #fc8019;
-    width: 120px;
-    height: 40px;
-    text-align: center;
-    line-height: 40px;
-    cursor: pointer;
-    font-weight: 600;
+  border: 1px solid #fc8019;
+  margin-top: 20px;
+  margin-right: 20px;
+  color: #fc8019;
+  width: 120px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  font-weight: 600;
 }
 
 .pastorder-container .bottom .row2 a:first-child {
-    background: #fc8019;
-    color: #fff;
+  background: #fc8019;
+  color: #fff;
+}
+
+.row2 .user-details-admin {
+  border-left: 3px solid #fc8019;
+  margin: 10px 0px 0px 10px;
+  padding: 5px 10px;
+}
+
+.row2 .user-details-admin div span {
+  color: #fc8019;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.row2 .user-details-admin div:first-child {
+  padding-bottom: 2px;
 }
 
 /*------PAGINATION-------*/
 .pagination {
-    margin: 15px auto;
-    display: flex;
-    list-style: none;
-    outline: none;
+  margin: 15px auto;
+  display: flex;
+  list-style: none;
+  outline: none;
 }
 .pagination > .active > a {
-    background-color: #fc8019;
-    border-color: #fc8019;
-    color: #fff;
+  background-color: #fc8019;
+  border-color: #fc8019;
+  color: #fff;
 }
 .pagination > li > a {
-    border: 1px solid #fc8019;
-    padding: 5px 10px;
-    outline: none;
-    cursor: pointer;
+  border: 1px solid #fc8019;
+  padding: 5px 10px;
+  outline: none;
+  cursor: pointer;
 }
 .pagination > .active > a,
 .pagination > .active > span,
@@ -185,17 +201,17 @@
 .pagination > .active > span:hover,
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
-    background-color: #fc8019;
-    border-color: #fc8019;
-    outline: none;
+  background-color: #fc8019;
+  border-color: #fc8019;
+  outline: none;
 }
 .pagination > li > a,
 .pagination > li > span {
-    color: #fc8019;
+  color: #fc8019;
 }
 .pagination > li:first-child > a,
 .pagination > li:first-child > span,
 .pagination > li:last-child > a,
 .pagination > li:last-child > span {
-    border-radius: unset;
+  border-radius: unset;
 }
