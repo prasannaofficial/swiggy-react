@@ -107,6 +107,7 @@ class CheckoutPage extends Component {
     }
     this.setState({
       greenMessage: "Please wait we are placing your order!!",
+      redMessage: "",
     });
     let orderMenu = [];
     this.state.menu.forEach((element) => {
@@ -149,11 +150,28 @@ class CheckoutPage extends Component {
             isPlacing: false,
           });
         } catch (err) {
-          console.log("failure click", err);
+          console.log("Catch error", err);
+          // this.setState({
+          //   greenMessage: "",
+          //   redMessage: "Payment canceled. Please try again.",
+          //   orderplaced: false,
+          //   isPlacing: false,
+          // });
         }
       },
       theme: {
         color: "#686CFD",
+      },
+      modal: {
+        ondismiss: () => {
+          console.log("Dismiss");
+          this.setState({
+            greenMessage: "",
+            redMessage: "Payment canceled. Please try again.",
+            orderplaced: false,
+            isPlacing: false,
+          });
+        },
       },
     };
     const rzp1 = new window.Razorpay(options);
