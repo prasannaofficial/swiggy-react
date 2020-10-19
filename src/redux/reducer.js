@@ -67,7 +67,6 @@ export const fetchRestaurantsListReducer = (
   state = initialStateRestaurants,
   action
 ) => {
-  console.log("hello world", action.type, action.payLoad);
   switch (action.type) {
     case FETCH_RESTAURANTSLIST:
       return {

@@ -35,7 +35,6 @@ export const fetchOffersAction = () => (dispatch) => {
 };
 
 export const fetchRestaurantsListAction = () => {
-  console.log("Hello world");
   return {
     type: FETCH_RESTAURANTSLIST,
   };

@@ -131,8 +131,8 @@ class CheckoutPage extends Component {
     const data = await response.json();
     const options = {
       key: process.env.RAZOR_PAY_TEST_KEY,
-      name: "Your App Name",
-      description: "Some Description",
+      name: "Swiggy",
+      description: "Order your food",
       order_id: data.id,
       handler: async (response) => {
         try {
@@ -142,7 +142,6 @@ class CheckoutPage extends Component {
             totalprice: this.state.totalPrice,
             swiggy_order_id: data.data._id,
           });
-          console.log(captureResponse.data);
           this.setState({
             greenMessage: "Order Placed Successfully!!",
             redMessage: "",
@@ -151,12 +150,6 @@ class CheckoutPage extends Component {
           });
         } catch (err) {
           console.log("Catch error", err);
-          // this.setState({
-          //   greenMessage: "",
-          //   redMessage: "Payment canceled. Please try again.",
-          //   orderplaced: false,
-          //   isPlacing: false,
-          // });
         }
       },
       theme: {
@@ -164,7 +157,6 @@ class CheckoutPage extends Component {
       },
       modal: {
         ondismiss: () => {
-          console.log("Dismiss");
           this.setState({
             greenMessage: "",
             redMessage: "Payment canceled. Please try again.",
