@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Axios from "axios";
 import "./CheckoutPage.css";
 import HeaderComponent from "../../components/HeaderComponent/HeaderComponent";
 import CartItemComponent from "../../components/CartItemComponent";
@@ -98,6 +99,66 @@ class CheckoutPage extends Component {
       });
     }
   };
+  placeOrderOnline = async (e) => {
+    e.preventDefault();
+    if (this.state.isPlacing) return;
+    else {
+      this.setState({ isPlacing: true });
+    }
+    this.setState({
+      greenMessage: "Please wait we are placing your order!!",
+    });
+    let orderMenu = [];
+    this.state.menu.forEach((element) => {
+      if (element.quantity > 0) {
+        orderMenu.push(element);
+      }
+    });
+    let myHeaders = new Headers();
+    myHeaders.append("x-access-token", localStorage.getItem("token"));
+    var urlencoded = new URLSearchParams();
+    urlencoded.append("restname", this.state.restDetails.name);
+    urlencoded.append("area", this.state.restDetails.area);
+    urlencoded.append("imglink", this.state.restDetails.imgLink);
+    urlencoded.append("ordersjson", JSON.stringify(orderMenu));
+    urlencoded.append("totalprice", this.state.totalPrice);
+    const response = await fetch(backendLink + "/api/payment/order", {
+      method: "POST",
+      headers: myHeaders,
+      body: urlencoded,
+    });
+    const data = await response.json();
+    const options = {
+      key: process.env.RAZOR_PAY_TEST_KEY,
+      name: "Your App Name",
+      description: "Some Description",
+      order_id: data.id,
+      handler: async (response) => {
+        try {
+          const paymentId = response.razorpay_payment_id;
+          const url = backendLink + "/api/payment/capture/" + paymentId;
+          const captureResponse = await Axios.post(url, {
+            totalprice: this.state.totalPrice,
+            swiggy_order_id: data.data._id,
+          });
+          console.log(captureResponse.data);
+          this.setState({
+            greenMessage: "Order Placed Successfully!!",
+            redMessage: "",
+            orderplaced: true,
+            isPlacing: false,
+          });
+        } catch (err) {
+          console.log("failure click", err);
+        }
+      },
+      theme: {
+        color: "#686CFD",
+      },
+    };
+    const rzp1 = new window.Razorpay(options);
+    rzp1.open();
+  };
   render() {
     return this.state.cartCount ? (
       <>
@@ -170,7 +231,10 @@ class CheckoutPage extends Component {
                     <div className="payment-button" onClick={this.placeOrder}>
                       Cash On Delivery
                     </div>
-                    <div className="payment-button" onClick={this.placeOrder}>
+                    <div
+                      className="payment-button"
+                      onClick={this.placeOrderOnline}
+                    >
                       Online Payment
                     </div>
                   </div>
