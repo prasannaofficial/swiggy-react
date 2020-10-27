@@ -5,7 +5,9 @@ import RestaurantsPage from "./pages/RestaurantsPage/RestaurantsPage";
 import OrdersPage from "./pages/OrdersPage/OrdersPage";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
 import MyOrdersPage from "./pages/MyOrdersPage/MyOrdersPage";
-// import AdminPage from "./pages/AdminPage/AdminPage";
+import ChatPage from "./pages/ChatPage/ChatPage";
+// import UserChat from "./pages/ChatPage/UserChat";
+// import AdminChat from "./pages/ChatPage/AdminChat";
 
 const App = () => {
   useEffect(() => {
@@ -30,6 +32,12 @@ const App = () => {
         path={"/myorders"}
         render={(props) => <MyOrdersPage {...props} role="user" />}
       ></Route>
+      <Route
+        exact
+        path={"/chat"}
+        render={(props) => <ChatPage {...props} role="user" />}
+      ></Route>
+      {/* <Route exact path={"/chat"} component={ChatPage}></Route> */}
 
       {/* ADMIN ROUTES */}
       <Route
@@ -37,6 +45,12 @@ const App = () => {
         path={"/admin"}
         render={(props) => <MyOrdersPage {...props} role="admin" />}
       ></Route>
+      <Route
+        exact
+        path={"/adminchat"}
+        render={(props) => <ChatPage {...props} role="admin" />}
+      ></Route>
+      {/* <Route exact path={"/adminchat"} component={AdminChat}></Route> */}
     </BrowserRouter>
   );
 };

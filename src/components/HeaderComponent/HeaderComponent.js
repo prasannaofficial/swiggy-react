@@ -34,7 +34,7 @@ const HeaderComponent = ({ history, role }) => {
                 HOME
               </a>
             </li>
-            {isUser ? (
+            {/* {isUser ? (
               <li className="nav-item">
                 <a className="nav-link address">
                   4th Cross Cut Road, Ration Office St...
@@ -42,21 +42,26 @@ const HeaderComponent = ({ history, role }) => {
               </li>
             ) : (
               <></>
-            )}
+            )} */}
           </ul>
           <ul className="navbar-nav right-menu">
             {isUser ? (
               <>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <a className="nav-link">
                     <ion-icon name="search-outline"></ion-icon>
                     Search
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    <ion-icon name="help-buoy-outline"></ion-icon>
-                    Help
+                <li
+                  className="nav-item"
+                  onClick={() => {
+                    history.push("/chat");
+                    return true;
+                  }}
+                >
+                  <a className="nav-link">
+                    <ion-icon name="help-buoy-outline"></ion-icon>Chat
                   </a>
                 </li>
                 <li
@@ -66,18 +71,41 @@ const HeaderComponent = ({ history, role }) => {
                     return true;
                   }}
                 >
-                  <a className="nav-link" href="#">
+                  <a className="nav-link">
                     <ion-icon name="fast-food-outline"></ion-icon>My Orders
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <a className="nav-link">
                     <ion-icon name="cart-outline"></ion-icon>Cart
                   </a>
                 </li>
               </>
             ) : (
-              <></>
+              <>
+                <li
+                  className="nav-item"
+                  onClick={() => {
+                    history.push("/adminchat");
+                    return true;
+                  }}
+                >
+                  <a className="nav-link">
+                    <ion-icon name="help-buoy-outline"></ion-icon>Chat
+                  </a>
+                </li>
+                <li
+                  className="nav-item"
+                  onClick={() => {
+                    history.push("/admin");
+                    return true;
+                  }}
+                >
+                  <a className="nav-link">
+                    <ion-icon name="fast-food-outline"></ion-icon>Orders
+                  </a>
+                </li>
+              </>
             )}
             <li
               className="nav-item"
@@ -87,7 +115,7 @@ const HeaderComponent = ({ history, role }) => {
                 return true;
               }}
             >
-              <a className="nav-link" href="#">
+              <a className="nav-link">
                 <ion-icon name="person-outline"></ion-icon>
                 Logout
               </a>
@@ -95,8 +123,6 @@ const HeaderComponent = ({ history, role }) => {
             <li className="nav-item">
               <span
                 className="nav-link"
-                href="#"
-                style={{ cursor: "pointer" }}
                 onClick={() => {
                   {
                     const prefersDarkScheme = window.matchMedia(
