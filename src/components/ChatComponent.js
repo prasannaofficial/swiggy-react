@@ -16,10 +16,15 @@ const ChatComponent = (props) => {
     console.log(props);
     if (props.to) {
       query.to = props.to;
-      console.log(props.to);
+      // console.log(props.to);
     }
     socketRef.current = io.connect(backendLink, {
       query,
+    });
+    socketRef.current.emit("receive messages");
+    socketRef.current.on("initial messages", (messageObjArray) => {
+      setMessages((oldMsgs) => [...oldMsgs, ...messageObjArray]);
+      chatAreaRef.current.scrollTop = chatAreaRef.current.scrollHeight;
     });
     socketRef.current.on("message", (messageObj) => {
       // console.log(messageObj);
