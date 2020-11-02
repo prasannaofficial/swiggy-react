@@ -9,6 +9,8 @@ import ChatPage from "./pages/ChatPage/ChatPage";
 // import UserChat from "./pages/ChatPage/UserChat";
 // import AdminChat from "./pages/ChatPage/AdminChat";
 
+// import { requestFirebaseNotificationPermission } from "./firebaseInit";
+
 const App = () => {
   useEffect(() => {
     const currentTheme = localStorage.getItem("theme");
@@ -17,6 +19,13 @@ const App = () => {
     } else if (currentTheme == "light") {
       document.body.classList.toggle("light-mode");
     }
+    // requestFirebaseNotificationPermission()
+    //   .then((firebaseToken) => {
+    //     console.log(firebaseToken);
+    //   })
+    //   .catch((err) => {
+    //     return err;
+    //   });
   }, []);
 
   return (

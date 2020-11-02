@@ -2,6 +2,8 @@ import React from "react";
 import "./HeaderComponent.css";
 import logo from "../../img/s logo.png";
 
+import { requestFirebaseNotificationPermission } from "../../firebaseInit";
+
 const HeaderComponent = ({ history, role }) => {
   let home, isUser;
   if (role === "admin") {
@@ -56,7 +58,14 @@ const HeaderComponent = ({ history, role }) => {
                 <li
                   className="nav-item"
                   onClick={() => {
-                    history.push("/chat");
+                    requestFirebaseNotificationPermission()
+                      .then((firebaseToken) => {
+                        console.log(firebaseToken);
+                        history.push("/chat");
+                      })
+                      .catch((err) => {
+                        return err;
+                      });
                     return true;
                   }}
                 >
@@ -86,7 +95,14 @@ const HeaderComponent = ({ history, role }) => {
                 <li
                   className="nav-item"
                   onClick={() => {
-                    history.push("/adminchat");
+                    requestFirebaseNotificationPermission()
+                      .then((firebaseToken) => {
+                        console.log(firebaseToken);
+                        history.push("/adminchat");
+                      })
+                      .catch((err) => {
+                        return err;
+                      });
                     return true;
                   }}
                 >
